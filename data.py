@@ -10,8 +10,9 @@ user_body = {
 
 headers = {
     "Content-Type": "application/json"
-                    "Authorization" "Bearer {authToken}"
+    "Authorization" "Bearer {authToken}"
 }
+
 kit_body = {
        "name": "Мой набор"
-   }
+}
