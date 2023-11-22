@@ -11,7 +11,7 @@ user_body = {
 headers = {
     "Content-Type": "application/json"
 }
-created_kits = {
+create_kits = {
        "name": "Мой набор",
        "card": {
            "id": 1,
