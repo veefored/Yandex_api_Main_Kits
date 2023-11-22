@@ -8,3 +8,4 @@ def post_new_user(body):
 
 response = post_new_user(data.user_body);
 print(response.status_code)
+print(response.authToken)
