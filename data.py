@@ -8,7 +8,7 @@ user_body = {
     "address": "г. Москва, ул. Пушкина, д. 10"
 }
 
-created_kit = {
+created_kits = {
        "name": "Мой набор",
        "card": {
            "id": 1,
