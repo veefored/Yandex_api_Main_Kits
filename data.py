@@ -8,11 +8,6 @@ user_body = {
     "address": "г. Москва, ул. Пушкина, д. 10"
 }
 
-headers = {
-    "Content-Type": "application/json"
-    "Authorization" "Bearer {authToken}"
-}
-
 kit_body = {
        "name": "Мой набор"
 }
