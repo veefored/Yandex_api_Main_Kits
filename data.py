@@ -17,7 +17,7 @@ created_kits = {
            "id": 1,
            "name": "Под ситуацию"
        },
-       "productsList": "null",
-       "id": 7,
-       "productsCount": 0
+    "productsList": "null",
+    "id": 7,
+    "productsCount": 0
    }
