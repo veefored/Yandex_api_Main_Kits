@@ -5,3 +5,8 @@ import sender_stand_request
 assert user_response.status_code == 201
 # Проверяется, что в ответе есть поле authToken, и оно не пустое
 assert user_response.json()["authToken"] != ""
+
+
+
+data.authToken ["Authorization"] = response.json()
+print (data.authToken)
