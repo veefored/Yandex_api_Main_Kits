@@ -7,9 +7,11 @@ def post_new_kit(name):
     return current_kit_name
 def positive_assert(name):
     kit_body = post_new_kit(name)
-    kit_response = sender_stand_request.post_new_kit()
+    create_kit_response = sender_stand_request.post_new_kit()
 
-    assert kit_response.status_code == 201
+    assert create_kit_response.status_code == 201
     assert kit_response.json()["authToken"] != ""
-def test_create_user_2_letter_in_first_name_get_success_response():
-    positive_assert("Aa")
+
+# Тест 1. Успешное создание пользователя. Параметр kit_Name состоит из 1 символа
+def test_create_kit_1_letter_in_name_get_success_response():
+    positive_assert("a")
