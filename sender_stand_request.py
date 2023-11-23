@@ -18,7 +18,8 @@ print (data.authToken)
 def post_new_client_kit (body):
     return requests.post (configuration.URL_SERVICE + configuration.CREATE_KITS_PATH,
                          params=data.kit_body,
-                         headers=data.authToken)
+                         headers=data.authToken,
+                         json=data.kit_body)
 
 response = post_new_client_kit(data.kit_body)
 
