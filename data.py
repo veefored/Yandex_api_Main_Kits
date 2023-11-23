@@ -6,9 +6,9 @@ user_body = {
     "phone": "+79995553322",
     "address": "г. Москва, ул. Пушкина, д. 10"
 }
-headers_authToken = {
+authToken = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer f92dc3ae-90cc-49cb-b7b6-fd0031570775"
+    "Authorization": "Bearer {}"
 }
 kit_body = {
        "name": "Мой набор"
