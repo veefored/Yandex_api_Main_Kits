@@ -96,7 +96,7 @@ def test_create_new_kit_name_has_space_letter_in_name_post_success_response():
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 9. Параметр kit_Name состоит из Разрешены цифры: "123"
-def test_create_new_kit_name_123_letter_in_name_post_success_response():
+def test_create_new_kit_name_number_type_letter_in_name_post_success_response():
     kit_body = post_new_kit_body("123")
     kit_response = sender_stand_request.post_new_client_kit("123")
 
