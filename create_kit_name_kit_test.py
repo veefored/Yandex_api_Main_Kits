@@ -14,3 +14,18 @@ def test_create_new_kit_name_1_letter_in_name_post_success_response():
 
     assert kit_response.status_code == 201
     assert kit_response.json()["name"] == kit_body["name"]
+
+# Тест 2. Параметр kit_Name состоит из Допустимое количество символов (511)
+def test_create_new_kit_name_511_letter_in_name_post_success_response():
+    kit_body = post_new_kit_body("Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
+    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
+    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
+    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
+    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
+    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
+    "dabcdabcdabcdabcdabcdabcdabC")
+    kit_response = sender_stand_request.post_new_client_kit("a")
+
+    assert kit_response.status_code == 201
+    assert kit_response.json()["name"] == kit_body["name"]
+
