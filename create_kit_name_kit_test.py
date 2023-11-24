@@ -64,3 +64,12 @@ def test_create_new_kit_name_512_letter_in_name_post_error_response():
 
     assert kit_response.status_code == 400
     assert kit_response.json()["name"] == kit_body["name"]
+
+# Тест 5. Параметр kit_Name состоит из Разрешены английские буквы: "QWErty"
+def test_create_new_kit_name_1_letter_in_name_post_success_response():
+    kit_body = post_new_kit_body("QWErty")
+    kit_response = sender_stand_request.post_new_client_kit("QWErty")
+
+    assert kit_response.status_code == 201
+    assert kit_response.json()["name"] == kit_body["name"]
+
