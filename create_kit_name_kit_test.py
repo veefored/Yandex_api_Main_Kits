@@ -95,7 +95,7 @@ def test_positive_assert_create_new_kit_name_has_space_letter_in_name_post_succe
     assert kit_response.status_code == 201
     assert kit_response.json()["name"] == kit_body["name"]
 
-# Тест 9. Параметр kit_Name состоит из Разрешены цифры: "123"
+# Тест 9. Параметр kit_Name состоит из Разрешены цифры: 123
 def test_positive_assert_create_new_kit_name_number_type_letter_in_name_post_success_response():
     kit_body = post_new_kit_body("123")
     kit_response = sender_stand_request.post_new_client_kit("123")
@@ -112,3 +112,10 @@ def test_negative_assert_create_new_kit_name_no_letter_in_name_post_error_respon
     assert kit_response.json()["name"] == kit_body["name"]
     assert kit_response.json()["message"] == "Не все необходимые параметры были переданы"
 
+# Тест 11. Параметр kit_Name состоит из Передан другой тип параметра (число): 123
+def test_negative_assert_create_new_kit_name_number_type_letter_in_name_post_success_response():
+    kit_body = post_new_kit_body(123)
+    kit_response = sender_stand_request.post_new_client_kit(123)
+
+    assert kit_response.status_code == 400
+    assert kit_response.json()["name"] == kit_body["name"]
