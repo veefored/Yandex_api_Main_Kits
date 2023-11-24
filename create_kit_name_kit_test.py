@@ -14,3 +14,4 @@ def test_create_new_kit_name_1_letter_in_name_post_success_response():
 
     assert kit_response.status_code == 201
     assert kit_response.json()["name"] == kit_body["name"]
+
