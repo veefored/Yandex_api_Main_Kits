@@ -64,7 +64,7 @@ def test_create_new_kit_name_512_letter_in_name_post_error_response():
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 5. Параметр kit_Name состоит из Разрешены английские буквы: "QWErty"
-def test_create_new_kit_name_QWErty_letter_in_name_post_success_response():
+def test_create_new_kit_name_english_letter_in_name_post_success_response():
     kit_body = post_new_kit_body("QWErty")
     kit_response = sender_stand_request.post_new_client_kit("QWErty")
 
@@ -72,7 +72,7 @@ def test_create_new_kit_name_QWErty_letter_in_name_post_success_response():
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 6. Параметр kit_Name состоит из Разрешены русские буквы: "Мария"
-def test_create_new_kit_name_Мария_letter_in_name_post_success_response():
+def test_create_new_kit_name_russian_letter_in_name_post_success_response():
     kit_body = post_new_kit_body("Мария")
     kit_response = sender_stand_request.post_new_client_kit("Мария")
 
@@ -88,7 +88,7 @@ def test_create_new_kit_name_special_symbol_letter_in_name_post_success_response
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 8. Параметр kit_Name состоит из Разрешены пробелы: "Человек и КО"
-def test_create_new_kit_name_Человек_и_КО_letter_in_name_post_success_response():
+def test_create_new_kit_name_has_space_letter_in_name_post_success_response():
     kit_body = post_new_kit_body("Человек и КО")
     kit_response = sender_stand_request.post_new_client_kit("Человек и КО")
 
