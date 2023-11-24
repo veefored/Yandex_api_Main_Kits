@@ -8,7 +8,7 @@ user_body = {
 }
 authToken = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer 11ed3f9f-389a-4209-a9e3-09440e7dcdcc"
+    "Authorization": "Bearer {authToken}"
 }
 kit_body = {
        "name": "Мой набор"
