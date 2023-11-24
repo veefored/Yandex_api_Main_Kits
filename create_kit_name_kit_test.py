@@ -36,7 +36,7 @@ def test_create_new_kit_name_511_letter_in_name_post_success_response():
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 3. Параметр kit_Name состоит из Количество символов меньше допустимого (0)
-def test_create_new_kit_name_0_letter_in_name_post_error_response():
+def test_create_new_kit_name_empty_letter_in_name_post_error_response():
     kit_body = post_new_kit_body("")
     kit_response = sender_stand_request.post_new_client_kit("")
 
@@ -104,7 +104,7 @@ def test_create_new_kit_name_number_type_letter_in_name_post_success_response():
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 10. Параметр kit_Name состоит из Параметр не передан в запросе:
-def test_create_new_kit_name_letter_in_name_post_error_response():
+def test_create_new_kit_name_ne_peredan_letter_in_name_post_error_response():
     kit_body = post_new_kit_body("")
     kit_response = sender_stand_request.post_new_client_kit("")
 
