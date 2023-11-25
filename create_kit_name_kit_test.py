@@ -14,7 +14,7 @@ def test_positive_assert_create_new_kit_name_1_letter_in_name_post_success_respo
     kit_body = get_kit_body("a")
 # в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-# проверяется, что код ответа соответствует 201
+# проверяется, что код ответа соответствует коду 201
     assert kit_response.status_code == 201
 # проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
@@ -22,6 +22,7 @@ def test_positive_assert_create_new_kit_name_1_letter_in_name_post_success_respo
 # Тест 2. Параметр kit_Name состоит из Допустимое количество символов (511)
 # Функция для позитивной проверки
 def test_positive_assert_create_new_kit_name_511_letter_in_name_post_success_response():
+# в переменную kit_body созраняется обновленное тело запроса
     kit_body = get_kit_body("Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
     "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
     "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
@@ -29,18 +30,23 @@ def test_positive_assert_create_new_kit_name_511_letter_in_name_post_success_res
     "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
     "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"
     "dabcdabcdabcdabcdabcdabcdabC")
+# в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+# проверяется, что код ответа соответствует коду 201
     assert kit_response.status_code == 201
+# проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 3. Параметр kit_Name состоит из Количество символов меньше допустимого (0)
 # Функция для негативной проверки
 def test_negative_assert_create_new_kit_name_empty_letter_in_name_post_error_response():
-    negative_assert_kit_body = get_kit_body("")
+# в переменную kit_body созраняется обновленное тело запроса
+    kit_body = get_kit_body("")
+# в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+# проверяется, что код ответа соответствует коду 400
     assert kit_response.status_code == 400
+# проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 4. Параметр kit_Name состоит из Количество символов больше допустимого (512)
