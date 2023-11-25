@@ -22,3 +22,4 @@ data.authToken["Autrization"] = str(response.json())
 def post_new_client_kit (body):
     return requests.post (configuration.URL_SERVICE + configuration.CREATE_KITS_PATH,
                          headers=data.authToken, json=body)
+
