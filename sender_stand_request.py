@@ -18,7 +18,6 @@ def get_new_user_authToken (body):
 
 data.authToken["Autrization"] = str(response.json())
 
-
 # Добавление набора текущего пользователя
 def post_new_client_kit (body):
     return requests.post (configuration.URL_SERVICE + configuration.CREATE_KITS_PATH,
