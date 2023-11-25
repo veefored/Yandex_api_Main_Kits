@@ -132,6 +132,7 @@ def test_positive_assert_create_new_kit_name_number_type_letter_in_name_post_suc
 def test_negative_assert_create_new_kit_name_no_letter_in_name_post_error_response():
 # в переменную kit_body сохраняется обновленное тело запроса
     kit_body = get_kit_body("message")
+    kit_body.pop("name")
 # в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
 # проверяется, что код ответа соответствует коду 400
