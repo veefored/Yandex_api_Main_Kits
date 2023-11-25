@@ -86,8 +86,9 @@ def test_positive_assert_create_new_kit_name_russian_letter_in_name_post_success
     kit_body = get_kit_body("Мария")
 # в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+# проверяется, что код ответа соответствует коду 201
     assert kit_response.status_code == 201
+# проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 7. Параметр kit_Name состоит из Разрешены спецсимволы: "№%@"
@@ -97,8 +98,9 @@ def test_positive_assert_create_new_kit_name_special_symbol_letter_in_name_post_
     kit_body = get_kit_body("№%@")
 # в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+# проверяется, что код ответа соответствует коду 201
     assert kit_response.status_code == 201
+# проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 8. Параметр kit_Name состоит из Разрешены пробелы: "Человек и КО"
@@ -108,8 +110,9 @@ def test_positive_assert_create_new_kit_name_has_space_letter_in_name_post_succe
     kit_body = get_kit_body("Человек и КО")
 # в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+# проверяется, что код ответа соответствует коду 201
     assert kit_response.status_code == 201
+# проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 9. Параметр kit_Name состоит из Разрешены цифры: 123
@@ -119,8 +122,9 @@ def test_positive_assert_create_new_kit_name_number_type_letter_in_name_post_suc
     kit_body = get_kit_body("123")
 # в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+# проверяется, что код ответа соответствует коду 201
     assert kit_response.status_code == 201
+# проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
 
 # Тест 10. Параметр kit_Name состоит из Параметр не передан в запросе:
@@ -130,9 +134,11 @@ def test_negative_assert_create_new_kit_name_no_letter_in_name_post_error_respon
     kit_body = get_kit_body("message")
 # в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+# проверяется, что код ответа соответствует коду 400
     assert kit_response.status_code == 400
+# проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
+# проверяется, что в ответе получаем сообщение "Не все необходимые параметры были переданы"
     assert kit_response.json()["message"] == "Не все необходимые параметры были переданы"
 
 # Тест 11. Параметр kit_Name состоит из Передан другой тип параметра (число): 123
@@ -142,6 +148,7 @@ def test_negative_assert_create_new_kit_name_number_type_letter_in_name_post_suc
     kit_body = get_kit_body(123)
 # в переменную kit_response сохраняется результат запроса на создание набора
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+# проверяется, что код ответа соответствует коду 400
     assert kit_response.status_code == 400
+# проверяется, что в ответе поле name совпадает с полем name в запросе
     assert kit_response.json()["name"] == kit_body["name"]
